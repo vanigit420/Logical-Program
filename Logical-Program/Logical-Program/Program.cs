@@ -4,20 +4,36 @@
     {
         static void Main(string[] args)
         {
-            int n1 = 0, n2 = 1, n3, num;
+            int n, i, flag = 0;
+            int min, max;
 
-            Console.WriteLine("Enter the number of Elements: ");
-            num = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Find the Prime number within a given range of number");
 
-            Console.Write(n1 + " " + n2 + " ");
+            Console.WriteLine("Input the starting number of range:");
+            min = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 2; i < num; i++)
+            Console.WriteLine("Input the Ending number of range:");
+            max = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Prime numbers within the given range");
+            if (min >= 2)
             {
-                n3 = n1 + n2;
-                Console.Write(n3 + " ");
-
-                n1 = n2;
-                n2 = n3;
+                for (n = min; n <= max; n++)
+                {
+                    i = 2;
+                    flag = 0;
+                    while (i <= n/2)
+                    {
+                        if (n % i == 0)
+                        {
+                            flag = 1;
+                            break;
+                        }
+                        i = i + 1;
+                    }
+                    if (flag == 0)
+                        Console.Write("{0} ", n);
+                }
             }
         }
     }
