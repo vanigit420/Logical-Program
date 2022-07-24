@@ -2,25 +2,22 @@
 {
     class Program
     {
-        static Random random = new Random();
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter How many unique coupons do you want: ");
-            int number = Convert.ToInt32(Console.ReadLine());
-            distinctCoupon(number);
-        }
-        static void generateCoupon()
-        {
-            double coupon = (random.NextDouble() * 1000000);
-            Console.WriteLine((int)coupon);
-        }
-        static void distinctCoupon(int number)
-        {
-            Console.WriteLine("Unique Coupons are: ");
-            while (number > 0)
+            int n1 = 0, n2 = 1, n3, num;
+
+            Console.WriteLine("Enter the number of Elements: ");
+            num = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write(n1 + " " + n2 + " ");
+
+            for (int i = 2; i < num; i++)
             {
-                generateCoupon();
-                number--;
+                n3 = n1 + n2;
+                Console.Write(n3 + " ");
+
+                n1 = n2;
+                n2 = n3;
             }
         }
     }
