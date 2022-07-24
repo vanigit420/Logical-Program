@@ -2,20 +2,26 @@
 {
     class Program
     {
+        static Random random = new Random();
         static void Main(string[] args)
         {
-            int num, reverse = 0, remainder = 0;
-
-            Console.WriteLine("Enter the Number : ");
-            num = Convert.ToInt32(Console.ReadLine());
-
-            while (num != 0)
+            Console.WriteLine("Enter How many unique coupons do you want: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+            distinctCoupon(number);
+        }
+        static void generateCoupon()
+        {
+            double coupon = (random.NextDouble() * 1000000);
+            Console.WriteLine((int)coupon);
+        }
+        static void distinctCoupon(int number)
+        {
+            Console.WriteLine("Unique Coupons are: ");
+            while (number > 0)
             {
-                remainder = num % 10;
-                reverse = reverse * 10 + remainder;
-                num = num / 10;
+                generateCoupon();
+                number--;
             }
-            Console.WriteLine("Reverse Number is : " + reverse);
         }
     }
 }
